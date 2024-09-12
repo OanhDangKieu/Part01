@@ -96,6 +96,30 @@
         echo "20.'$email' không phải là một email hợp lệ.".'</br>';
     }
     echo "Chuỗi với chữ cái đầu in hoa: " . mb_convert_case('đặng kiều oanh', MB_CASE_TITLE, "UTF-8").'</br>';
+
+    function inChuNhatRong($chieuCao, $chieuRong) {
+        // Duyệt qua từng dòng
+        for ($i = 1; $i <= $chieuCao; $i++) {
+            // Nếu là dòng đầu tiên hoặc dòng cuối cùng, in ra toàn dấu sao
+            if ($i == 1 || $i == $chieuCao) {
+                for ($j = 1; $j <= $chieuRong; $j++) {
+                    echo "-";
+                }
+            } else {
+                // Nếu là các dòng ở giữa, in dấu sao đầu và cuối, giữa là khoảng trống
+                echo "|";
+                for ($j = 2; $j < $chieuRong; $j++) {
+                    echo " ";
+                }
+                echo "|";
+            }
+            // Xuống dòng
+            echo '</br>';
+        }
+    }
+    
+    // Gọi hàm in chữ nhật rỗng với chiều cao 5 và chiều rộng 7
+    inChuNhatRong(5, 7);
 ?>
 </body>
 </html>
